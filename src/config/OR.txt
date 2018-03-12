@@ -1,0 +1,4 @@
+# Login Page Object
+txtbx_UserName=.//*[@id='txtUserName']
+txtbx_Password=.//*[@id='txtPassword']
+btn_LogIn=.//*[@id='submit']
