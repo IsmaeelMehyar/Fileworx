@@ -2,6 +2,9 @@ package testCase;
 
 import org.openqa.selenium.WebDriver;
 import config.ActionKeywords;
+import config.Home;
+import config.LoginPage;
+import config.Preferences;
 
 public class LoginExcute {
 	public static WebDriver driver;
@@ -9,22 +12,19 @@ public class LoginExcute {
 
 		ActionKeywords.openBrowser("chrome");
 		ActionKeywords.navigate();
-		ActionKeywords.input_Username("mays");
-		ActionKeywords.input_Password("123");
-		ActionKeywords.click_Login();
-		ActionKeywords.click_User();
-		ActionKeywords.click_Preferences();
-		ActionKeywords.changeLanguage("Arabic");
-		ActionKeywords.changeDefaultHomePage();
-		ActionKeywords.changeEditorialHomeScreen();
-		ActionKeywords.changeDataeFormat(" Œ’Ì’", "dd/MM/yyy hh:mm:ss");
-		ActionKeywords.changeCalendarType("hijri");
-		ActionKeywords.changeMobile("13");
-		ActionKeywords.changeEmail("");
-		ActionKeywords.changeUsername("test");
-		ActionKeywords.changePassword("test", "newPass", "ConfirmPass");
-		ActionKeywords.changeEditorialHomeScreen();
-		ActionKeywords.cancelPreferences();
+		LoginPage.input_Username("mays");
+		LoginPage.input_Password("123");
+		Home.click_User();
+		Home.click_Preferences();
+		Preferences.changeLanguage("English");
+		Preferences.changeDefaultHomePage();
+		Preferences.changeDateFormat(" Œ’Ì’", "dd/MM/yyy hh:mm:ss");
+		Preferences.changeCalendarType("hijri");
+		Preferences.changeMobile("13");
+		Preferences.changeEmail("");
+		Preferences.changeUsername("test");
+		Preferences.changePassword("test", "newPass", "ConfirmPass");
+		Preferences.cancelPreferences();
 		ActionKeywords.waitFor(4);
 		ActionKeywords.closeBrowser();
 
