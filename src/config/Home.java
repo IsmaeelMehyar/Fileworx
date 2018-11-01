@@ -14,6 +14,10 @@ public class Home {
 		ActionKeywords.driver.findElement(By.cssSelector("i.fa.fa-sign-out")).click();
 	}
 	
+	public static void click_Compose() {
+	ActionKeywords.driver.findElement(By.cssSelector("i.fa.fa-pencil.fa-lg")).click();
+	}
+	
 	public static void click_User () {
 		ActionKeywords.driver.findElement(By.cssSelector("span.block.m-t-xs")).click();
 	}
@@ -41,14 +45,14 @@ public class Home {
 		//We locate the side menu element that has all the Modules.
 		WebElement sideMenu = ActionKeywords.driver.findElement(By.id("side-menu"));
 		//Then located the selected Module that you want to click inside the side menu element. 
-		WebElement module = sideMenu.findElement(By.xpath("//span[@class='nav-label' and contains(text(), '"+moduleName+"')]"));
+		WebElement module = sideMenu.findElement(By.xpath("//span[@class='nav-label' and contains(text(),"+moduleName+")]"));
 		//Then located the parent of the module element which is tag of type <a>
 		WebElement parent = module.findElement(By.xpath(".."));
 		//Then locate the parent of <a> tag element which is <li> element
 		WebElement parent2 = parent.findElement(By.xpath(".."));
-		//check if <li> tag does not has an attribute <class> with the value "active" we will click on it.
+		//check if <li> tag does not has an attribute <class> with the value "active" we will click on it
 		if (!parent2.getAttribute("class").equals("active")) {
-			ActionKeywords.driver.findElement(By.xpath("//span[@class='nav-label' and contains(text(), '"+moduleName+"')]")).click();
+			ActionKeywords.driver.findElement(By.xpath("//span[@class='nav-label' and contains(text(),'"+moduleName+"')]")).click();
 		}
 	}
 	

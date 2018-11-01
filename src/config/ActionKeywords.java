@@ -9,11 +9,11 @@ public class ActionKeywords {
 	public static WebDriver driver;
 	
 	public static void openBrowser(String browserName) {
-		if (browserName.equalsIgnoreCase("Chrome")) {
+		if (browserName.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\Chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
-		else if (browserName.equalsIgnoreCase("Firefox")) {
+		else if (browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\Firefox\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
@@ -23,9 +23,9 @@ public class ActionKeywords {
 		driver.quit();
 	}
 	
-	public static void navigate() {
+	public static void navigate(String URL) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get("http://mays/SEDCOWebServer/");
+		driver.get(URL);
 	}
 	
 	public static void waitFor(int waitTime) throws Exception {
