@@ -25,7 +25,7 @@ public class ActionKeywords {
 	
 	public static void navigate() {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get("http://ismaeel/SEDCOWebServer/");
+		driver.get("http://mays/SEDCOWebServer/");
 	}
 	
 	public static void waitFor(int waitTime) throws Exception {

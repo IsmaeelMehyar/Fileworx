@@ -155,7 +155,7 @@ public class Preferences {
 	public static void cancelPreferences () {
 		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-white")).click();
 	}
-	
+
 	public static void savePreferences () {
 		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 	}

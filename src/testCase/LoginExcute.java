@@ -17,15 +17,16 @@ public class LoginExcute {
 		Home.click_User();
 		Home.click_Preferences();
 		Preferences.changeLanguage("English");
-		Preferences.changeDefaultHomePage();
-		Preferences.changeDateFormat(" Œ’Ì’", "dd/MM/yyy hh:mm:ss");
-		Preferences.changeCalendarType("hijri");
+		//Preferences.changeDefaultHomePage();
+		//Preferences.changeDateFormat(" Œ’Ì’", "dd/MM/yyyy hh:mm:ss");
+		//Preferences.changeCalendarType("hijri");
+		Preferences.changePassword("test", "newPass", "ConfirmPass");
 		Preferences.changeMobile("13");
 		Preferences.changeEmail("");
-		Preferences.changeUsername("test");
-		Preferences.changePassword("test", "newPass", "ConfirmPass");
+		//Preferences.changeUsername("test");
+		//Preferences.changePassword("test", "newPass", "ConfirmPass");
 		Preferences.cancelPreferences();
-		ActionKeywords.waitFor(4);
+		ActionKeywords.waitFor(30);
 		ActionKeywords.closeBrowser();
 
 		}
