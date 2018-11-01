@@ -12,9 +12,10 @@ public class CreateNews {
 		
 		int count =1;
 		int maxTries =5;
+		boolean fail= true;
 		do {
 			try {
-				ActionKeywords.openBrowser("Chrome");
+				ActionKeywords.openBrowser("chrome");
 				ActionKeywords.navigate("http://10.0.10.71/SEDCOWebServer/");
 				LoginPage.input_Username("root");
 				LoginPage.input_Password("root");
@@ -34,12 +35,15 @@ public class CreateNews {
 					Compose.fill_Title("Quote ");
 					Compose.fill_Body("Quote ");
 					Compose.save_News();
-					ActionKeywords.waitFor(5);
+					ActionKeywords.waitFor(3);	
+					System.out.println("news"+i);
 				}
+				fail = false;
 			}
 			
 			catch (Exception e) {
 				ActionKeywords.closeBrowser();
+				fail= true;
 				if (++count == maxTries) {
 					throw e;
 				}
@@ -47,8 +51,9 @@ public class CreateNews {
 			}
 			finally {
 				ActionKeywords.closeBrowser();
+				
 			}
-		}while (count < maxTries);
+		}while (fail && count < maxTries);
 	}
 }
 
