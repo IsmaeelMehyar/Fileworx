@@ -24,6 +24,12 @@ public class Screen {
 	    rows.get(0).click();
 	}
 	
+	public static void Upload_Files() {
+		WebElement createNewBtn = ActionKeywords.driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[3]/div/div/div/div/div[1]/div/div/button"));
+		createNewBtn.click();
+		ActionKeywords.driver.findElement(By.linkText("Upload Files")).click();
+	}
+	
 	public static void Open_Tasks () {
 		ActionKeywords.driver.findElement(By.cssSelector("button.btn-primary.dropdown-toggle.btn-selected-items")).click();
 	}
