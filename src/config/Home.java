@@ -52,6 +52,7 @@ public class Home {
 		WebElement parent2 = parent.findElement(By.xpath(".."));
 		//check if <li> tag does not has an attribute <class> with the value "active" we will click on it
 		if (!parent2.getAttribute("class").equals("active")) {
+			//ActionKeywords.driver.findElement(By.xpath("//span[@class='nav-label' and normalize-space()='moduleName']")).click();
 			ActionKeywords.driver.findElement(By.xpath("//span[@class='nav-label' and contains(text(),'"+moduleName+"')]")).click();
 		}
 	}

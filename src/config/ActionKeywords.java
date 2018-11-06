@@ -10,11 +10,11 @@ public class ActionKeywords {
 	
 	public static void openBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\Chrome\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "D:\\WebDrivers\\Chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		else if (browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\Firefox\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "D:\\WebDrivers\\Firefox\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 	}
