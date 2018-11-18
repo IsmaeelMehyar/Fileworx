@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Screen {
@@ -34,16 +35,15 @@ public class Screen {
 		ActionKeywords.driver.findElement(By.cssSelector("button.btn-primary.dropdown-toggle.btn-selected-items")).click();
 	}
 	
-	public static void Select_Task() throws InterruptedException {
+	public static void Select_Task(String taskName ) throws InterruptedException {
 		
-		ActionKeywords.driver.findElement(By.linkText("SLeader Ar")).click();
+		ActionKeywords.driver.findElement(By.linkText(taskName)).click();
 		//Open_Tasks();
 		// Check if a confirmation message is displayed, if there is no confirmation message the test will continue and ignore the if statement 
 		if (IsConfirmationMsg()){
 			//If confirmation message is displayed click yes
 			ActionKeywords.driver.findElement(By.id("popup-btn-Yes")).click();
 		}
-		
 	}
 	
 	// This function checks if a confirmation message is displayed when a class is selected from tasks list
@@ -58,5 +58,69 @@ public class Screen {
 		}
 	}
 	
-
+	public static void DateFilter () throws InterruptedException {
+		Select filter = new Select (ActionKeywords.driver.findElement(By.cssSelector("select.date-filter-options.form-control")));
+		filter.selectByValue("Between");
+		Thread.sleep(1000);
+		ActionKeywords.driver.findElement(By.cssSelector("#frmScreensSearch > div:nth-child(2) > div > div > div.date-filter-between > div:nth-child(1) > li")).click();
+		ActionKeywords.driver.findElement(By.linkText("20")).click();
+		//Select month = new Select (ActionKeywords.driver.findElement(By.cssSelector("select.calendars-month-year.valid")));
+		//month.selectByValue("1/2018");
+		ActionKeywords.driver.findElement(By.cssSelector("#datTimePopup > div.date-picker-Popup.hasCalendarsPicker > div > div.calendars-month-row > div > div > select:nth-child(2)")).click();
+		Select year = new Select (ActionKeywords.driver.findElement(By.cssSelector("#datTimePopup > div.date-picker-Popup.hasCalendarsPicker > div > div.calendars-month-row > div > div > select:nth-child(2)")));
+		Thread.sleep(3000);
+		year.selectByIndex(0);
+		Thread.sleep(5000);
+		//ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-primary.btn-search-screen")).click();
+	}
+	
+	public static void Search (String searchText) {
+		ActionKeywords.driver.findElement(By.id("txtSearchTerm")).sendKeys(searchText);
+		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-primary.btn-search-screen")).click();
+	}
+	
+	public static void ChangeViewToDetails () {
+		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-sm.btn-default.dropdown-toggle")).click();
+		WebElement test = ActionKeywords.driver.findElement(By.cssSelector("span.m-r-sm.text-muted.welcome-message"));
+		if (test.getText().contains("Welcome to Fileworx")) {
+			ActionKeywords.driver.findElement(By.linkText("Details")).click();
+		}
+		else {
+			ActionKeywords.driver.findElement(By.linkText(" ›«’Ì·")).click();
+		}
+	}
+	
+	public static void ChangeViewToDetailsWithThumbnail () {
+		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-sm.btn-default.dropdown-toggle")).click();
+		WebElement test = ActionKeywords.driver.findElement(By.cssSelector("span.m-r-sm.text-muted.welcome-message"));
+		if (test.getText().contains("Welcome to Fileworx")) {
+			ActionKeywords.driver.findElement(By.linkText("Thumbnails with Details")).click();
+		}
+		else {
+			ActionKeywords.driver.findElement(By.linkText("’Ê— „’€¯—… „⁄  ›«’Ì·")).click();
+		}
+	}
+	
+	public static void ChangeViewToThumbnail () {
+		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-sm.btn-default.dropdown-toggle")).click();
+		WebElement test = ActionKeywords.driver.findElement(By.cssSelector("span.m-r-sm.text-muted.welcome-message"));
+		if (test.getText().contains("Welcome to Fileworx")) {
+			ActionKeywords.driver.findElement(By.linkText("Thumbnails")).click();
+		}
+		else {
+			ActionKeywords.driver.findElement(By.linkText("’Ê— „’€¯—…")).click();
+		}
+	}
+	
+	public static void ChangeViewToWebCustomView () {
+		ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-sm.btn-default.dropdown-toggle")).click();
+		WebElement test = ActionKeywords.driver.findElement(By.cssSelector("span.m-r-sm.text-muted.welcome-message"));
+		if (test.getText().contains("Welcome to Fileworx")) {
+			ActionKeywords.driver.findElement(By.linkText("Web Custom View")).click();
+		}
+		else {
+			ActionKeywords.driver.findElement(By.linkText("⁄—÷ „Œ’’ ··ÊÌ»")).click();
+		}
+	}
+	
 }

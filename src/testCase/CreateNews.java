@@ -15,7 +15,7 @@ public class CreateNews {
 		boolean fail= true;
 		do {
 			try {
-				ActionKeywords.openBrowser("chrome");
+				ActionKeywords.openBrowser("firefox");
 				ActionKeywords.navigate("http://10.0.10.71/SEDCOWebServer/");
 				LoginPage.input_Username("root");
 				LoginPage.input_Password("root");
@@ -31,7 +31,7 @@ public class CreateNews {
 					Screen.Select_Item();
 					Screen.Select_News();
 					Screen.Open_Tasks();
-					Screen.Select_Task();
+					Screen.Select_Task("");
 					Compose.fill_Title("Quote ");
 					Compose.fill_Body("Quote ");
 					Compose.save_News();

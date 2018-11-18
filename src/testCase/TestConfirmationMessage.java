@@ -18,7 +18,7 @@ public class TestConfirmationMessage {
 		Screen.Select_Item();
 		Screen.Select_News();
 		Screen.Open_Tasks();
-		Screen.Select_Task();
+		Screen.Select_Task("");
 		ActionKeywords.closeBrowser();
 	}
 
