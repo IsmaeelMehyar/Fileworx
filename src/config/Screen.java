@@ -3,6 +3,7 @@ package config;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -56,22 +57,6 @@ public class Screen {
 		catch (Exception e){
 			return false;
 		}
-	}
-	
-	public static void DateFilter () throws InterruptedException {
-		Select filter = new Select (ActionKeywords.driver.findElement(By.cssSelector("select.date-filter-options.form-control")));
-		filter.selectByValue("Between");
-		Thread.sleep(1000);
-		ActionKeywords.driver.findElement(By.cssSelector("#frmScreensSearch > div:nth-child(2) > div > div > div.date-filter-between > div:nth-child(1) > li")).click();
-		ActionKeywords.driver.findElement(By.linkText("20")).click();
-		//Select month = new Select (ActionKeywords.driver.findElement(By.cssSelector("select.calendars-month-year.valid")));
-		//month.selectByValue("1/2018");
-		ActionKeywords.driver.findElement(By.cssSelector("#datTimePopup > div.date-picker-Popup.hasCalendarsPicker > div > div.calendars-month-row > div > div > select:nth-child(2)")).click();
-		Select year = new Select (ActionKeywords.driver.findElement(By.cssSelector("#datTimePopup > div.date-picker-Popup.hasCalendarsPicker > div > div.calendars-month-row > div > div > select:nth-child(2)")));
-		Thread.sleep(3000);
-		year.selectByIndex(0);
-		Thread.sleep(5000);
-		//ActionKeywords.driver.findElement(By.cssSelector("button.btn.btn-primary.btn-search-screen")).click();
 	}
 	
 	public static void Search (String searchText) {

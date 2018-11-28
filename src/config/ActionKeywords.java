@@ -18,12 +18,14 @@ public class ActionKeywords {
 		case "Chrome":
 			System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\Chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 			break;
 		
 		case "Firefox":
 		case "firefox":
 			System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\Firefox\\geckodriver.exe");
 			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
 			break;
 		}
 			//The below block is to start the test on remote computer using Selenium Grid.
