@@ -18,7 +18,7 @@ public class FunctionsExecute {
 		driver.get(Constant.url);
 		LoginAction.Excute(driver);
 		HomePage.composeNews(driver).click();
-		ComposeNewsAction.Execute(driver, "test body", "test note");
+		ComposeNewsAction.Execute(driver, "test body 1", "test note");
 
 	}
 
